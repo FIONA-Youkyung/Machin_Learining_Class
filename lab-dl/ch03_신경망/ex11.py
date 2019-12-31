@@ -5,7 +5,7 @@ import pickle
 
 import numpy as np
 
-from ch03.ex01 import sigmoid
+from ch03_신경망.ex01 import sigmoid_function
 from dataset.mnist import load_mnist
 
 
@@ -39,8 +39,8 @@ def softmax(X):
 def forward(network, x):
     W1, W2, W3 = network['W1'], network['W2'], network['W3']
     b1, b2, b3 = network['b1'], network['b2'], network['b3']
-    z1 = sigmoid(x.dot(W1) + b1)  # 첫번째 은닉층 전파(propagation)
-    z2 = sigmoid(z1.dot(W2) + b2)  # 두번째 은닉층 전파(propagation)
+    z1 = sigmoid_function(x.dot(W1) + b1)  # 첫번째 은닉층 전파(propagation)
+    z2 = sigmoid_function(z1.dot(W2) + b2)  # 두번째 은닉층 전파(propagation)
     y = softmax(z2.dot(W3) + b3)  # 출력층 전파(propagation)
     return y
 
