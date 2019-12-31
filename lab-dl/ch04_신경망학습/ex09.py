@@ -131,7 +131,14 @@ if __name__ == "__main__" :
     lr = 0.1
     for key in gradients :
         neural_net.params[key] -= lr *gradients[key]
-        
+
+    epoch = 1000
+    for i in range(epoch) :
+        for i in range(10) :
+            gradients = neural_net.gradient(X_train[i*100:(i+1)*100],y_train[i*100:(i+1)*100])
+
+            for key in gradients :
+                neural_net.params[key] -= lr * gradients[key]
 
 
 
